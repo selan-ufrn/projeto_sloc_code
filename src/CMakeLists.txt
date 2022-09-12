@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project (SlotProject VERSION 1.0.0 LANGUAGES CXX )
+project (SlocProject VERSION 1.0.0 LANGUAGES CXX )
 
 # Currently CMake (since 2.8.5) supports generation of compilation databases
 # for Unix Makefile builds (Ninja builds in the works) with the option
