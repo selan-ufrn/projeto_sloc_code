@@ -101,19 +101,17 @@ int main(void) {
 ```
 
 Within a "`/*`" and "`*/`" block comment, the "`//`" characters have no special meaning and must be ignored. Similarly, within a single line "`//`" comment, the "`/*`" and "`*/`" have no special meaning.
-Thus, it is possible to _"nest"_ one kind of comment within the other kind.
-For example:
+Each opening "`/*`" must be macthed to the next "`*/`" present in the code, which means that everything in between must be ignored.
+For example, in the code below the single line comment is ignored.
 ```c++
 /* 
   Comment out a piece of code.
 
   for(int i{0}; i<10; i++ )
     std::cout << "(" << i+1 << "): Hello world!\n"; // prints Hello World
-  /*
-  /*  another nested comment. */
-  */
 */
 ```
+
 
 Additionally, any comment mark that appears  **inside** a string literal must also be ignored.
 ```c++
@@ -147,27 +145,17 @@ Another situation to look out for is when a multi line block comment ends and we
 ```
 The code above should be counted as 3 lines of comment and 1 line of code.
 
-### Dealing with multiple lines comment and nested comments w
-
-So far we learned that in a source code it's possible to have nested comments spanning a single line or multiple lines.
-To keep track of that and compute such lines as comments correctly, we need to maintain an integer value corresponding to the
-comment nesting level (CNL).
-The initial value for the CNL is zero, which means that there is no unmatched block comment.
-
-Every time a multi line opening comment mark '`/*`' is found we increase the CNL. Similarly, when we find a multi line
-closing comment mark '`*/`' we decrease the CNL.
-
-One suggestion here is to create a function that receives the current line of code and the current CNL.
-Then the function traverses the string, examining each individual character to decide how it should update the overall CNL.
-Another task assigned to this function is to  **trim** out all the content that lies _inside_ a comment block.
-
-The trimming process happens as follows:
-If the CNL is zero, then it copies the current string character to the trimmed string.
-On the other hand, if the CNL is not zero, the content is ignored and will not be sent to the trimmed string.
-
-The end result is an updated CNL and a new trimmed string with all comment content removed (which could produce an empty string). Then the function should return both the new trimmed string to the client as well as the updated CNL.
-
-On the client side, after the trimming is done, we test the CNL value. If it is greater than zero, it means we are inside a block comment. Therefore we count the current line as a comment. However, if the CNL is zero, it means we are outside a comment section. So we must compare the original string with the trimmed string to decide if the current line should count as a) a sloc, b) a sloc **and** a comment, or c) a blank line only.
+Note that the code below is considered **illegal** and the C/C++ compiler would reject it with an error.
+```
+1: /*
+2:    Some comment.
+3:    /*
+4:      Extra nested comment.
+5:     */
+6: */
+```
+The compiler will treat lines 1 to 5 as a single block of comment, and the line 6 would cause a syntax error because it would be considered an illegal symbol in the sorce code.
+The `sloc` program would count line 6 as a line of code, and lines 1-5 as comment lines.
 
 ## System Modeling
 
