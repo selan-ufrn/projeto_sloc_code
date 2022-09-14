@@ -46,6 +46,7 @@ Options:
   -r          Look for files recursively in the directory provided.
 ```
 
+If the user runs with the `-r` option, the program must look recursively in all subdirectories for all C/C++ files. Of course, this option only makes sense if the required source argument is a **directory**; so if the program receives a file name instead, it should just ignore the `-r` option.
 
 ## Execution
 
@@ -240,14 +241,15 @@ This assignment has a total of **100 points**. Bellow is a table with the descri
 Item     | Value (points)
 -------- | :-----:
 Read a single source file | 10
-Read a list of files from a directory | 15
+Read a list of files from a directory | 8
+Read a list of files recursively from a directory (option `-r`) | 8
 Show help as requested `-h` | 4
 Treat error situations | 8
 Show correct number of blank lines | 5
 Show correct number of comment lines | 10
 Show correct number of code lines | 10
 Show correct number of total lines | 5
-Show the type of source file | 5
+Show the type of source file | 4
 Show percentages as requested | 10
 Show consolidation at the bottom of a table | 5
 Table is formatted as requested | 8
