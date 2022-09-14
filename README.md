@@ -43,6 +43,7 @@ Welcome to sloc, version 1.0, (c) 2022 Selan, DIMAp, UFRN.
 Usage: sloc [options] file/directory
 Options:
   -h/--help   Display this information.
+  -r          Look for files recursively in the directory provided.
 ```
 
 
