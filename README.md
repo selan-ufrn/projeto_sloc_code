@@ -251,7 +251,7 @@ The important point here is that your program **must not crash** in any circumst
 
 ## Assignment Grading
 
-This assignment has a total of **100 points**. Bellow is a table with the description of the item under consideration and the assigned grade _if the item is totally correct_. Partial grade will be considered if the item is not fully correct.
+This assignment has a total of **112 points**. Bellow is a table with the description of the item under consideration and the assigned grade _if the item is totally correct_. Partial grade will be considered if the item is not fully correct.
 
 Item     | Value (points)
 -------- | :-----:
@@ -268,6 +268,7 @@ Show the type of source file | 4
 Show percentages as requested | 10
 Show consolidation at the bottom of a table | 5
 Table is formatted as requested | 8
+Sort lines of table as requested | 12
 The project contains at least one struct or classes | 5
 
 The following situations may take credits out of your assignment, if they happen during the evaluation process:
