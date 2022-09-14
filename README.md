@@ -21,7 +21,7 @@ This program is a terminal application that should receive the C/C++ source file
 $ ./build/sloc src/main.cpp
 Files processed: 1
 ----------------------------------------------------------------------------------------------------
-Filename            Language        Comments        Blank           Code            All
+Filename            Language        Comments        Blank           Sloc            All
 ----------------------------------------------------------------------------------------------------
 src/main.cpp        C++             140 (29.9%)     43 (9.2%)       320 (68.4%)     468
 ----------------------------------------------------------------------------------------------------
@@ -44,9 +44,18 @@ Usage: sloc [options] file/directory
 Options:
   -h/--help   Display this information.
   -r          Look for files recursively in the directory provided.
+  -s c/b/s/a  Sort table by (c)omments, (b)lank lines, (s)loc, or (a)ll.
+              Default is show files in ordem of appearance.
 ```
 
 If the user runs with the `-r` option, the program must look recursively in all subdirectories for all C/C++ files. Of course, this option only makes sense if the required source argument is a **directory**; so if the program receives a file name instead, it should just ignore the `-r` option.
+
+The option `-s`, if present, controls how the entries in the output table are listed. The possibilities are the following:
++ **no option** (no sorting): the table lines appear in the order the files are found by the program.
++ `-s c`: entries are sorted in ascending order of number of **comment** lines.
++ `-s b`: entries are sorted in ascending order of number of **blank** lines.
++ `-s s`: entries are sorted in ascending order of number of **sloc** lines.
++ `-s a`: entries are sorted in ascending order of total number of lines.
 
 ## Execution
 
