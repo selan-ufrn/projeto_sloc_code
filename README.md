@@ -148,6 +148,12 @@ The same goes for the code below
 ```c++
 int x = 0; // This is both a comment and a sloc.
 ```
+
+and this one here
+```c++
+/* some comment */ int x = 0; /* another comment here */
+```
+
 Another situation to look out for is when a multi line block comment ends and we still have a C/C++ statement on that line.
 ```c++
 /* one
