@@ -233,8 +233,8 @@ $ ./build/sloc file.cpp
 ```
 2. The client provides an existing file but it is not a supported source file.
 ```
-$ ./build/sloc file.tex
-  Sorry, ".tex" files are not supported at this time.
+$ ./build/sloc README.md
+  Sorry, file "README.md" not supported at this time.
 ```
 3. The client provides an existing directory that does not contain any supported source file.
 ```
