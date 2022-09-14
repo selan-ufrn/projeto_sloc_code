@@ -226,25 +226,30 @@ The columns may have a fixed width. In particular, the first column must grow in
 
 There are, at least, four possible errors that your program must address:
 
-1. The client provides a non existing source file.
+1. The client provides a non existing source file or directory.
 ```
 $ ./build/sloc file.cpp
-  Sorry, unable to open "file.cpp".
+  Sorry, unable to open target "file.cpp".
 ```
 2. The client provides an existing file but it is not a supported source file.
 ```
 $ ./build/sloc file.tex
   Sorry, ".tex" files are not supported at this time.
 ```
-3. The client provides a non existing directory.
-```
-$ ./build/sloc souce
-  Sorry, unable to access directory "souce".
-```
-4. The client provides an existing directory that does not contain any supported source file.
+3. The client provides an existing directory that does not contain any supported source file.
 ```
 $ ./build/sloc src
   Sorry, unable to find any supported source file inside directory "src".
+```
+4. The client provides an incomplete sorting option.
+```
+$ ./build/sloc src -s
+  Missing indication of sorting field.
+```
+5. The client provides an non-existing sorting option.
+```
+$ ./build/sloc src -s x
+ Unrecognized sorting field provided. 
 ```
 
 In any of these cases just described the program must print the proper error message and exit the program without printing an empty table.
