@@ -44,18 +44,22 @@ Usage: sloc [options] file/directory
 Options:
   -h/--help   Display this information.
   -r          Look for files recursively in the directory provided.
-  -s c/b/s/a  Sort table by (c)omments, (b)lank lines, (s)loc, or (a)ll.
-              Default is show files in ordem of appearance.
+  -s c/b/s/a  Sort table in ascending order by (c)omments, 
+              (b)lank lines, (s)loc, or (a)ll. Default is to show
+              files in ordem of appearance.
+  -S c/b/s/a  Same as above, but in descending order.
 ```
 
 If the user runs with the `-r` option, the program must look recursively in all subdirectories for all C/C++ files. Of course, this option only makes sense if the required source argument is a **directory**; so if the program receives a file name instead, it should just ignore the `-r` option.
 
-The option `-s`, if present, controls how the entries in the output table are listed. The possibilities are the following:
+The option `-s`, if present, the table lines are sorted in **ascending** order. The possibilities are the following:
 + **no option** (no sorting): the table lines appear in the order the files are found by the program.
 + `-s c`: entries are sorted in ascending order of number of **comment** lines.
 + `-s b`: entries are sorted in ascending order of number of **blank** lines.
 + `-s s`: entries are sorted in ascending order of number of **sloc** lines.
 + `-s a`: entries are sorted in ascending order of total number of lines.
+
+If the option is `-S` instead, the lines are sorted in **descending** order. The same options of fields as above (`c/b/s/a`) applies.
 
 ## Execution
 
