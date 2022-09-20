@@ -1,4 +1,4 @@
-﻿# Programming Assignment: Sloc Project 
+# Programming Assignment: Sloc Project 
 
 ### Table of Contents
 1. [Introduction](#introduction)
@@ -81,8 +81,9 @@ When the counting process is done and finished for the entire list of files, you
 
 In summary, your program should:
 1. read the input source and create a list of valid files to process;
-2. for each file in the list, count the individual lines of code, comments, and blank lines, and;
-3. display the result of the counting into a single table, with information associated with each individual file.
+2. for each file in the list, count the individual lines of code, comments, and blank lines;
+3. Sort the collected information according to the parameters providede by the user (if that is the case), and;
+4. display the result of the counting into a single table, with information associated with each individual file.
 
 ### Single line of code, comments, and blank lines
 
